@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { Edit, Delete } from '@element-plus/icons-vue'
 import { artGetChannelsService, artDelChannelService } from '../../api/article'
-//import ChannelEdit from './components/ChannelEdit.vue'
+import ChannelEdit from './components/ChannelEdit.vue'
 const channelList = ref([])
 const loading = ref(false)
 const dialog = ref()
@@ -39,7 +39,7 @@ const onSuccess = () => {
 <template>
   <page-container title="文章分类">
     <template #extra>
-      <el-button @click="onAddChannel">添加分类</el-button>
+      <el-button type="primary" @click="onAddChannel">添加分类</el-button>
     </template>
 
     <el-table v-loading="loading" :data="channelList" style="width: 100%">
@@ -67,7 +67,7 @@ const onSuccess = () => {
       </el-table-column>
 
       <template #empty>
-        <el-empty description="没有数据"></el-empty>
+        <el-empty :image-size="300" description="糟糕，没有数据🤣"></el-empty>
       </template>
     </el-table>
 
